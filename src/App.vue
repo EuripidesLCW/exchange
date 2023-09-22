@@ -96,6 +96,7 @@
 
 <script setup>
 import { ref, onMounted, computed } from "vue";
+import axios from "axios";
 
 const groupedData = ref([]);
 const searchTerm = ref("");
@@ -104,8 +105,8 @@ const selectedRowsMonth = ref([]);
 
 onMounted(async () => {
   try {
-    const response = await fetch("output.json");
-    const jsonData = await response.json();
+    const response = await axios.get("/output.json"); // 使用 Axios 发送 GET 请求
+    const jsonData = response.data; // 获取响应的数据
 
     if (Array.isArray(jsonData)) {
       const grouped = groupDataByMonth(jsonData);
