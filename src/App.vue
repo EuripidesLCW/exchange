@@ -1,10 +1,11 @@
 <template>
   <div>
-    <input
-      class="search-container"
-      v-model="searchKeyword"
-      placeholder="輸入關鍵字"
-    />
+    <div class="search-container">
+      <input
+        v-model="searchKeyword"
+        placeholder="輸入關鍵字"
+      />
+    </div>
     <div class="table-container">
       <table class="custom-table">
         <thead>
@@ -229,7 +230,12 @@ const bubbleSort = (arr, column, ascending) => {
 
 <style scoped>
 .search-container {
-  width: 99.5%;
+  display: flex;
+  justify-content: center;
+}
+
+.search-container input {
+  width: 100%;
   font-size: 30px;
 }
 
